@@ -1,3 +1,10 @@
+<?php
+
+    include 'login.php';
+	include 'register.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -59,16 +66,16 @@
 	                        		</div>
 	                            </div>
 	                            <div class="form-bottom">
-				                    <form role="form" action="" method="post" class="login-form">
+				                    <form role="form" action="" method="post" class="login-form"  >
 				                    	<div class="form-group">
-				                    		<label class="sr-only" for="form-username">Username</label>
-				                        	<input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username" required>
+				                    		<label class="sr-only" for="form-username">Korisnicko ime</label>
+				                        	<input type="text" name="form-username" placeholder="Korisnicko ime..." class="form-username form-control" id="form-username" required>
 				                        </div>
 				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-password">Password</label>
-				                        	<input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password" required>
+				                        	<label class="sr-only" for="form-password">lozinka</label>
+				                        	<input type="password" name="form-password" placeholder="Lozinka..." class="form-password form-control" id="form-password" required>
 				                        </div>
-				                        <button type="submit" class="btn">Sign in!</button>
+				                        <button type="submit" class="btn" name="login">Sign in!</button>
 				                    </form>
 			                    </div>
 		                    </div>
@@ -96,22 +103,28 @@
 				                    <form role="form" action="" method="post" class="registration-form">
 				                    	<div class="form-group">
 				                    		<label class="sr-only" for="form-first-name">First name</label>
-				                        	<input type="text" name="form-first-name" placeholder="First name..." class="form-first-name form-control" id="form-first-name" required>
+				                        	<input type="text" name="form-first-name" placeholder="Ime..." class="form-first-name form-control" id="form-first-name" required>
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-last-name">Last name</label>
-				                        	<input type="text" name="form-last-name" placeholder="Last name..." class="form-last-name form-control" id="form-last-name" required>
+				                        	<input type="text" name="form-last-name" placeholder="Prezime..." class="form-last-name form-control" id="form-last-name" required>
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-email">Email</label>
 				                        	<input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email"required>
 				                        </div>
-				                        <div class="form-group">
-				                        	<label class="sr-only" for="form-about-yourself">About yourself</label>
-				                        	<textarea name="form-about-yourself" placeholder="About yourself..." 
-				                        				class="form-about-yourself form-control" id="form-about-yourself"></textarea>
+                                        <div class="form-group">
+				                        	<label class="sr-only" for="form-brojTelefona">Broj telefona</label>
+				                        	<input type="text" name="form-brojTelefona" placeholder="Broj telefona..." class="form-email form-control" id="form-brojTelefona"required>
 				                        </div>
-				                        <button type="submit" class="btn">Sign me up!</button>
+                                        <div class="form-group">
+				                        	<label class="sr-only" for="form-lozinka">Lozinka</label>
+				                        	<input type="password" name="form-lozinka" placeholder="Lozinka..." class="form-email form-control" id="form-lozinka"required>
+				                        </div>
+                                         
+
+				                       
+				                        <button type="submit" class="btn" name="register">Sign me up!</button>
 				                    </form>
 			                    </div>
                         	</div>

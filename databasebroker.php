@@ -1,21 +1,12 @@
 <?php
-class Database
-{
-    private $dbServer = 'localhost';
-    private $dbUser = 'root';
-    private $dbPassword = '';
-    private $dbName = 'prodajaodece';
-    protected $conn;
+ 
+     
+        $hostname = "localhost";
+        $username = "root";
+        $password = "";
+        $database = "prodajaodece";
+        
+        $conn = mysqli_connect($hostname,$username,$password,$database) or die("Database connection failed");
+     
 
-    public function __construct()
-    {
-        try {
-            $dsn = "mysql:host={$this->dbServer}; dbname={$this->dbName}; charset=utf8";
-            $options = array(PDO::ATTR_PERSISTENT);
-            $this->conn = new PDO($dsn, $this->dbUser, $this->dbPassword, $options);
-        } catch (PDOException $e) {
-            echo "Connection Error: " . $e->getMessage();
-        }
-
-    }
-}
+?>
