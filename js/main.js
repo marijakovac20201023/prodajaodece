@@ -49,3 +49,31 @@
         console.error('Greska: ' + textStatus, errorThrown);
     });
 }); 
+
+
+
+
+
+
+
+
+function prikaziOdecu(prikazid){
+   // alert(prikazid);
+
+    $.post("handler/get.php",{prikazid:prikazid},function(data,status){
+      // console.log(data);
+      //  console.log(status);
+        var odecaid=JSON.parse(data);//uzimamo podatke i parsisamo ih u JSON
+                //uzimamo podatke iz baze i cuvamo ih u input field
+         
+        
+        $('#nazivPreview').text("   " + odecaid.naziv  );
+        $('#descriptionPreview').text("   " +  odecaid.opis);
+        $('#pricePreview').text("   " +  odecaid.cena);
+
+        document.getElementById("IMG").src = 'images/'+odecaid.slika;
+
+
+    });
+
+}

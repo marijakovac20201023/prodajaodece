@@ -34,7 +34,11 @@ class KomadOdece{
         return $conn->query($upit); 
     }
 
-
+    public static function vratiKomadOdecePoID($id,$conn){
+        $upit = " select * from komadodece where id=$id";
+       
+        return $conn->query($upit); 
+    }
 
 }
 
