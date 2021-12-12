@@ -23,15 +23,16 @@ class KomadOdece{
 
     public static function dodajOdecu($odeca, $conn){
         $upit = "insert into komadodece (naziv,opis,velicina,cena,slika) values ('$odeca->naziv','$odeca->opis','$odeca->velicina',$odeca->cena,'$odeca->slika')";
-        echo $upit;
-        return $conn->query($upit);
-
-
-
+        
+        return $conn->query($upit); 
 
     }
 
-
+    public static function vratiSvuOdecu($conn){
+        $upit = " select * from komadodece";
+       
+        return $conn->query($upit); 
+    }
 
 
 
