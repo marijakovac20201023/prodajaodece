@@ -10,15 +10,16 @@
     $velicine = Velicina::vratiSveVelicine($conn);
 
     $svaOdeca = KomadOdece::vratiSvuOdecu($conn);
-    $ulogovaniKorisnik = Korisnik::vratiImeIPrezimeKorisnika($_SESSION["currentUser"],$conn);
+    $ulogovaniKorisnik = Korisnik::vratiImeIPrezimeKorisnika($_SESSION["currentUser"],$conn); 
 
  
  
-   // if(isset($_SESSION["currentUser"]))
-    //    echo  $_SESSION["currentUser"];
-    //else
-      //  echo "GRESKA";
-
+    if(!isset($_SESSION["currentUser"])){ //korisik ne moze da pristupi sistemu ako se prethodno nije ulogovao
+      echo '<script>alert("Morate da se ulogujete!")</script>';
+      header('Location: index.php');
+    }
+       
+ 
  
 
 
