@@ -77,7 +77,7 @@
                     <td> 
                     <form  method="post">
                                                 <button type="button" class="btn btn-success"    data-toggle="modal" data-target="#updateModal"  >  <i class="fas fa-pencil-alt"></i> </button> 
-                                                <button type="button" class="btn btn-danger"   ><i class="fas fa-trash"></i></button>  
+                                                <button type="button" class="btn btn-danger"    ><i class="fas fa-trash" onclick="obrisiOdecu(<?php echo   $red['id'];?>)"></i></button>  
                                                 <button type="button" class="btn btn-warning"   data-toggle="modal" data-target="#profileModal"  onclick="prikaziOdecu(<?php echo   $red['id'];?>)" ><i class="far fa-id-card"></i></button>   </td>
                                                 </form>
                                             </tr>

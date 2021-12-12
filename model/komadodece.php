@@ -40,6 +40,15 @@ class KomadOdece{
         return $conn->query($upit); 
     }
 
+    public static function obrisiKomadOdece($id, $conn){
+        $upit = " delete from  komadodece where id=$id";
+       
+        return $conn->query($upit); 
+    }
+
+
+
+
 }
 
 
