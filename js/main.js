@@ -3,27 +3,14 @@
 
     var form = $('#addform')[0];
     var formData = new FormData(form);
-    event.preventDefault(); //zaustavi refresovanje na stranici
-    console.log("Dodaj je pokrenuto");
-
-
-
-   // const $form = $(this);//this se odnosi na formu #add form
-   /// const $input = $form.find('input,select,button,textarea');
-   /// const serijalizacija = $form.serialize(); //serijalizujemo podatke iz forme i saljemo ih nasem postu
-   // console.log(serijalizacija); 
-
-    //$input.prop('disabled', true); //na sve inpute postavljamo property da onemogucimo da korisnik menja ono sto je uneo dok se ne zavrsi ubacivanje u tabelu
-
-      
-
+    event.preventDefault();  
+ 
+ 
 
 
     request = $.ajax({  
         url: 'handler/insert.php',  
-        type: 'post',
-       
-        //data: serijalizacija
+        type: 'post', 
         processData: false,
         contentType: false,
         data: formData
@@ -36,7 +23,7 @@
 
         if (response === "Success") {
             alert("Odeca dodata");
-            console.log("Uspesno dodavanje");
+            
             location.reload(true);
         }
         else {
@@ -58,7 +45,7 @@
 
 
 function prikaziOdecu(prikazid){
-   // alert(prikazid);
+ 
 
     $.post("handler/get.php",{prikazid:prikazid},function(data,status){
       // console.log(data);
@@ -70,7 +57,7 @@ function prikaziOdecu(prikazid){
         $('#nazivPreview').text("   " + odecaid.naziv  );
         $('#descriptionPreview').text("   " +  odecaid.opis);
         $('#pricePreview').text("   " +  odecaid.cena);
-
+ 
         document.getElementById("IMG").src = 'images/'+odecaid.slika;
 
 
