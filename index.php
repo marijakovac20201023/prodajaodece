@@ -1,8 +1,12 @@
 <?php
-
+	session_start();
+	require 'databasebroker.php';
+	require 'model/korisnik.php';
     include 'login.php';
 	include 'register.php';
 
+
+	
 ?>
 
 <!DOCTYPE html>

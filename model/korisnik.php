@@ -40,7 +40,7 @@ class Korisnik{
     }
 
     public static function getIdByEmail($user,$conn){
-        $query = "  select * from user where email='$user->email' ";
+        $query = "  select * from korisnik where email='$user->email' ";
         $myArray = array();
         $result= $conn->query($query);
         if($result){
@@ -56,8 +56,8 @@ class Korisnik{
 
 
     
-    public static function getUserById($id,$conn){
-        $query = "select * from user where id=$id";
+    public static function getUserById($id,$conn){ //vraca samo ime i prezime korisnika
+        $query = "select * from  korisnik where id=$id";
         $myArray = array();
         $result= $conn->query($query);
         if($result){
@@ -66,7 +66,8 @@ class Korisnik{
                 $myArray[] = $row;
             }
         }
-        return  $myArray[0]["firstname"]  . " " . $myArray[0]["lastname"] ;
+        echo $myArray[0];
+        return  $myArray[0]["ime"]  . " " . $myArray[0]["prezime"] ;
 
     }
 
