@@ -10,6 +10,20 @@ class Velicina{
         return $conn->query($upit);
 
     }
+
+
+
+    public static function vratiNazivVelicine($conn){
+        $upit = "SELECT * from velicina";
+
+
+        $rezultat= $conn->query($upit);
+        
+    }
+
+
+
+
 }
    
 
