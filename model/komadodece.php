@@ -47,6 +47,13 @@ class KomadOdece{
     }
 
 
+    public static function azurirajOdecu($odeca,$conn){
+
+        $upit = "update komadodece set cena=$odeca->cena,naziv='$odeca->naziv',opis='$odeca->opis',slika='$odeca->slika',velicina=$odeca->velicina where id=$odeca->id ";
+
+        return $conn->query($upit); 
+
+    }
 
 
 }

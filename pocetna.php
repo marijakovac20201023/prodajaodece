@@ -48,7 +48,7 @@
 
     <div class="container">
 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewModal" >Dodaj novi komad odece</button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewModal"   >Dodaj novi komad odece</button>
                 <br><br><br>
             <table class="table">
                 <thead>
@@ -65,7 +65,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                  <?php  while($red = $svaOdeca->fetch_array()): 
+                  <?php  
+                  
+                    while($red = $svaOdeca->fetch_array()): 
                       $velicina =   Velicina::vratiNazivVelicine($red['velicina'],$conn);  ?>
                     <tr>
                     <th  >   <?php   echo $red['id'];        ?>     </th>
@@ -73,10 +75,10 @@
                     <td> <?php   echo $red['opis'];        ?> </td>
                     <td> <?php       echo   $velicina      ?> </td>
                     <td> <?php   echo $red['cena'];        ?> </td>
-                    <td> <img src="images/<?php   echo $red['slika'];        ?>" alt="$red['slika']"   style="width: 120px;height: auto;"> </td>
+                    <td> <img src="images/<?php   echo $red['slika'];        ?>" alt="<?php   echo $red['slika'];        ?>"   style="width: 120px;height: auto;"> </td>
                     <td> 
                     <form  method="post">
-                                                <button type="button" class="btn btn-success"    data-toggle="modal" data-target="#updateModal"  >  <i class="fas fa-pencil-alt"></i> </button> 
+                                                <button type="button" class="btn btn-success"    data-toggle="modal" data-target="#editModal"  onclick="azurirajOdecu(<?php echo   $red['id'];?>)" >  <i class="fas fa-pencil-alt"></i> </button> 
                                                 <button type="button" class="btn btn-danger"    ><i class="fas fa-trash" onclick="obrisiOdecu(<?php echo   $red['id'];?>)"></i></button>  
                                                 <button type="button" class="btn btn-warning"   data-toggle="modal" data-target="#profileModal"  onclick="prikaziOdecu(<?php echo   $red['id'];?>)" ><i class="far fa-id-card"></i></button>   </td>
                                                 </form>
@@ -95,7 +97,7 @@
 
 
 <!-- add form modal -->
-<div class="modal fade" id="addNewModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel"
+<div class="modal fade" id="addNewModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel"
   aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -164,7 +166,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1"><i class="fa fa-picture-o"   aria-hidden="true"></i></span>
               </div>
-              <input type="file" class="form-control" id="uploadfile" name="uploadfile" required="required">
+              <input type="file" class="form-control" id="uploadfile" name="uploadfile"   >
             </div>
           </div>
 
@@ -183,6 +185,123 @@
 <!-- add form modal end -->
  
         
+<!-- edit form modal -->
+<div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> Izmena</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="editform" name="editform" method="POST" enctype="multipart/form-data">
+
+
+
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="naziv2" class="col-form-label">Naziv</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-tshirt"></i> 
+              </div>
+              <input type="text" class="form-control" id="naziv2" name="naziv2" required="required">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="opis2" class="col-form-label">Opis</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-pencil"   aria-hidden="true"></i></span>
+              </div>
+              <input type="text" class="form-control" id="opis2" name="opis2" required="required">
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="velicina2" class="col-form-label">Velicina</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fas fa-ruler"></i></i></span>
+              </div>
+              <select name="velicina2" id="velicina2">
+                                      <?php
+                                            $velicine = Velicina::vratiSveVelicine($conn);
+                                        while($red =   $velicine->fetch_array()):
+                                          $oznaka=$red["oznaka"];
+                                    
+                                      ?>
+                                        <option value=<?php echo $red["id"]?>><?php echo $red["oznaka"]?></option>
+
+
+                                        <?php   endwhile;   ?>
+                                      </select>
+            </div>
+          </div>
+          
+
+          <div class="form-group">
+            <label for="cena" class="col-form-label">Cena</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-tag"   aria-hidden="true"></i></span>
+              </div>
+              <input type="text" class="form-control" id="cena2" name="cena2" required="required">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="uploadfile2" class="col-form-label">Slika</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1"><i class="fa fa-picture-o"   aria-hidden="true"></i></span>
+              </div>
+              <input type="file" class="form-control" id="uploadfile2" name="uploadfile2"   >
+            </div>
+          </div>
+
+
+ 
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-success" id="editButton" >Submit</button> 
+        </div>
+
+
+
+                  <!-- Dodajemo ovde jedno skriveno polje da bismo sacuvali id odece koju azuriramo da bismo kasnije taj id mogli da koristimo u update.php -->
+                  <input type="hidden" name="sakrivenoPolje" id="sakrivenoPolje" readonly>
+
+
+                  <!-- Dodajemo jos jedno skriveno polje u kom cemo samo cuvati putanju do slike  -->
+                  <input type="hidden" name="sakrivenoPolje2"   id="sakrivenoPolje2" readonly>
+                                          <br><br><br>
+
+      </form>
+    </div>
+  </div>
+</div>
+<!-- edit form modal end -->
+ 
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         
 
 
