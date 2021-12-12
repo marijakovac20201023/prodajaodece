@@ -4,13 +4,15 @@
     include 'model/velicina.php';
     include 'model/komadodece.php';
     include 'databasebroker.php';
+    include 'model/korisnik.php';
 
 
     $velicine = Velicina::vratiSveVelicine($conn);
 
     $svaOdeca = KomadOdece::vratiSvuOdecu($conn);
+    $ulogovaniKorisnik = Korisnik::vratiImeIPrezimeKorisnika($_SESSION["currentUser"],$conn);
 
-  //  $ulogovaniKorisnik = Korisnik::getUserById( $_SESSION["currentUser"],$conn);
+ 
  
    // if(isset($_SESSION["currentUser"]))
     //    echo  $_SESSION["currentUser"];
@@ -39,7 +41,7 @@
 <body>
     <div class="container" style="padding:10px">
         <div class="alert alert alert-primary" role="alert">
-            <h4 class="text-primary text-center"> Ovde cemo ispisati ulogovanog korisnika</h4>
+            <h4 class="text-primary text-center"> Zdravo,  <?php echo $ulogovaniKorisnik?> ! </h4>
         </div>
     </div>
          

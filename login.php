@@ -4,7 +4,7 @@
 
 
 
-	
+	session_start();
 	if(isset($_POST["login"])){  //ako je korisnik kliknuo dugme sa name-om login
         
 		$email = $_POST["form-username"];

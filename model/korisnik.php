@@ -56,7 +56,7 @@ class Korisnik{
 
 
     
-    public static function getUserById($id,$conn){ //vraca samo ime i prezime korisnika
+    public static function vratiImeIPrezimeKorisnika($id,$conn){ //vraca samo ime i prezime korisnika
         $query = "select * from  korisnik where id=$id";
         $myArray = array();
         $result= $conn->query($query);
@@ -66,7 +66,7 @@ class Korisnik{
                 $myArray[] = $row;
             }
         }
-        echo $myArray[0];
+        
         return  $myArray[0]["ime"]  . " " . $myArray[0]["prezime"] ;
 
     }
