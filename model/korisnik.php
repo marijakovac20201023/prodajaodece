@@ -71,7 +71,12 @@ class Korisnik{
 
     }
 
+    public static function proveriEmail($email,$conn){
+        $sql="SELECT * FROM korisnik WHERE email='$email'";
+       
+        return $conn->query($sql);
 
+    }
 }
 
 

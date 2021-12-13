@@ -116,8 +116,9 @@
 				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-email">Email</label>
-				                        	<input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email"required>
-				                        </div>
+				                        	<input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email"  onblur="proveri(document.getElementById('form-email').value)"         required>
+											<div  id="user">Informacija o validnosti unetog email-a</div>
+										</div>
 										<div class="form-group">
 				                        	<label class="sr-only" for="form-lozinka">Lozinka</label>
 				                        	<input type="password" name="form-lozinka" placeholder="Lozinka..." class="form-email form-control" id="form-lozinka"required>
@@ -147,7 +148,7 @@
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
         <script src="assets/js/scripts.js"></script>
-        
+        <script src="js/provera.js"></script>
   
 
     </body>
