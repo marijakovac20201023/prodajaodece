@@ -110,18 +110,20 @@
 				                        	<label class="sr-only" for="form-last-name">Last name</label>
 				                        	<input type="text" name="form-last-name" placeholder="Prezime..." class="form-last-name form-control" id="form-last-name" required>
 				                        </div>
+										<div class="form-group">
+				                        	<label class="sr-only" for="form-brojTelefona">Broj telefona</label>
+				                        	<input type="text" name="form-brojTelefona" placeholder="Broj telefona..." class="form-email form-control" id="form-brojTelefona"required>
+				                        </div>
 				                        <div class="form-group">
 				                        	<label class="sr-only" for="form-email">Email</label>
 				                        	<input type="text" name="form-email" placeholder="Email..." class="form-email form-control" id="form-email"required>
 				                        </div>
-                                        <div class="form-group">
-				                        	<label class="sr-only" for="form-brojTelefona">Broj telefona</label>
-				                        	<input type="text" name="form-brojTelefona" placeholder="Broj telefona..." class="form-email form-control" id="form-brojTelefona"required>
-				                        </div>
-                                        <div class="form-group">
+										<div class="form-group">
 				                        	<label class="sr-only" for="form-lozinka">Lozinka</label>
 				                        	<input type="password" name="form-lozinka" placeholder="Lozinka..." class="form-email form-control" id="form-lozinka"required>
 				                        </div>
+                                        
+                                     
                                          
 
 				                       

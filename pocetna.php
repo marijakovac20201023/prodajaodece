@@ -40,14 +40,15 @@
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
 <body   >
-    <br><br>
-    <div class="container">
+   
+    
 
   
-    <div class="alert alert alert-primary" role="alert">
-            <h4 class="text-primary text-center" > Zdravo, <strong><?php echo $ulogovaniKorisnik?></strong>  ! </h4>
-        </div>
-        </div>
+    <div class="alert alert alert-primary" role="alert" style="height:75px">
+            <h4 class="text-primary text-center" style="float:left"> Zdravo, <strong><?php echo $ulogovaniKorisnik?></strong>  ! </h4>
+            <a  style="float:right;text-decoration: none;" href="logout.php">Kraj rada</a>
+    </div>
+   
          
     <br><br>
 
@@ -59,18 +60,26 @@
          
                    
                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewModal"   >Dodaj novi komad odece</button>  
-                  <div class="form-outline"    style="float:right">
-                    
+                  <div class="form-outline"    style="float:right">                    
                         <input type="search" id="pretraga" class="form-control" onkeyup="pretragaPoImenu()"    placeholder="Search.." />
                        
-                      </div>
+                    </div>
                       <button type="button" class="btn btn-primary" style="float:right">
                         <i class="fas fa-search"></i>
                       </button>
+                      <br><br>
+                      <button type="button" class="btn btn-warning" onclick="sortiraj()">Sortiraj<i class="fa fa-sort" aria-hidden="true" ></i></button>
+                      <select name="kriterijum" id="kriterijum" class="criteria">
+                          <option value="price">Cena</option> 
+                          <option value="name">Naziv</option>
+                    </select>
+
+
+                  
                  
           </div>
                 <br><br><br>
-            <table class="table" id="tabelaOdeca">
+            <table class="table" id="tabelaOdeca" style="width:100%">
                 <thead>
                     <tr>
                     <th scope="col">ID</th>
@@ -92,7 +101,7 @@
                     <tr>
                     <th  >   <?php   echo $red['id'];        ?>     </th>
                     <td><?php   echo $red['naziv'];        ?> </td>
-                    <td> <?php   echo $red['opis'];        ?> </td>
+                    <td style="max-width: 200px;"> <?php   echo $red['opis'];        ?> </td>
                     <td> <?php       echo   $velicina      ?> </td>
                     <td> <?php   echo $red['cena'];        ?> </td>
                     <td> <img src="images/<?php   echo $red['slika'];        ?>" alt="<?php   echo $red['slika'];        ?>"   style="width: 120px;height: auto;"> </td>
@@ -109,7 +118,8 @@
                   <?php endwhile;?>
                 </tbody>
         </table>
-
+            
+        <br><br><br><br><br>   
     </div>
 
 

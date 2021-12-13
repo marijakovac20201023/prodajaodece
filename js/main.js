@@ -88,11 +88,10 @@ function obrisiOdecu(deleteid){
 
 function azurirajOdecu(azurirajid){ //ovo je kad korisnik klikne dugme iz tabele za azuriranje
     //prvo moramo da popunimo formu sa vec unetim podacima pa onda da ih azuriramo
-   alert("A");
+    
     //kopiramo ovo iz prethodne funkcije
     $.post("handler/get.php",{azurirajid:azurirajid},function(data,status){
-         console.log(data);
-          console.log(status);
+         
           var odecaid=JSON.parse(data);//uzimamo podatke i parsisamo ih u JSON
                   //uzimamo podatke iz baze i cuvamo ih u input field
         console.log(odecaid.slika);
@@ -116,7 +115,7 @@ $('#editform').submit(function () {
     var form = $('#editform')[0];
     var formData = new FormData(form);
     event.preventDefault();  
-    console.log(formData);
+   
  
 
 
@@ -129,10 +128,7 @@ $('#editform').submit(function () {
     });
 
     request.done(function (response, textStatus, jqXHR) {
-        console.log(textStatus);
-        console.log(jqXHR);
-      console.log(response);
-
+      
         if (response === "Success") {
             alert("Odeca azurirana");
             
@@ -190,31 +186,17 @@ function pretragaPoImenu() {
 
 
 function sortiraj() {
+ 
     var table, rows, switching, i, j, z, k, x, y, shouldSwitch;
-    table = document.getElementById("myTable");
+    table = document.getElementById("tabelaOdeca");
 
 
-    var e = document.getElementById("criteria");
+    var e = document.getElementById("kriterijum");
+    console.log(e);
     var result = e.options[e.selectedIndex].value;
-    var p = document.getElementById("imejl").innerHTML;
+   console.log(result);
 
-
-
-    //SORT po datumu
-    // sortira tako da najsveziji datumu idu prvi 
-    if (result == "date") {
-        rows = table.rows;
-        for (i = 1; i < (rows.length - 1); i++) {
-            for (j = i + 1; j < rows.length; j++) {
-                x = rows[i].getElementsByTagName("TD")[0];
-                y = rows[j].getElementsByTagName("TD")[0];
-
-                if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-                    rows[i].parentNode.insertBefore(rows[j], rows[i]);
-                }
-            }
-        }
-    }
+ 
 
 
 
@@ -224,8 +206,8 @@ function sortiraj() {
         rows = table.rows;
         for (i = 1; i < (rows.length - 1); i++) {
             for (j = i + 1; j < rows.length; j++) {
-                x = rows[i].getElementsByTagName("TD")[4];
-                y = rows[j].getElementsByTagName("TD")[4];
+                x = rows[i].getElementsByTagName("TD")[3];
+                y = rows[j].getElementsByTagName("TD")[3];
                 z = parseInt(x.innerHTML);
                 k = parseInt(y.innerHTML);
                 if (z > k) {
@@ -237,14 +219,14 @@ function sortiraj() {
     }
 
 
-    //SORT po imenu automobila
-    //sortiranje vrsi po ASCII kodu
-    if (result == "carname") {
+    //SORT po imenu  
+ 
+    if (result == "name") {
         rows = table.rows;
         for (i = 1; i < (rows.length - 1); i++) {
             for (j = i + 1; j < rows.length; j++) {
-                x = rows[i].getElementsByTagName("TD")[1];
-                y = rows[j].getElementsByTagName("TD")[1];
+                x = rows[i].getElementsByTagName("TD")[0];
+                y = rows[j].getElementsByTagName("TD")[0];
 
                 if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
                     rows[i].parentNode.insertBefore(rows[j], rows[i]);
