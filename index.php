@@ -1,5 +1,5 @@
 <?php
-	session_start();
+
 	require 'databasebroker.php';
 	require 'model/korisnik.php';
     include 'login.php';
@@ -30,14 +30,11 @@
 
         <!-- Favicon and touch icons -->
         <link rel="shortcut icon" href="assets/ico/favicon.png">
-        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
-        <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
+    
 
     </head>
 
-    <body>
+    <body  >
 
         <!-- Top content -->
         <div class="top-content">
@@ -57,9 +54,9 @@
                     </div>
                     
                     <div class="row">
-                        <div class="col-sm-5">
+                        <div class="col-sm-5"  >
                         	
-                        	<div class="form-box">
+                        	<div class="form-box" >
 	                        	<div class="form-top">
 	                        		<div class="form-top-left">
 	                        			<h3>Ulogujte se </h3>

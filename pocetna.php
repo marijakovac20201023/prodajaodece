@@ -39,21 +39,38 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 </head>
-<body>
-    <div class="container" style="padding:10px">
-        <div class="alert alert alert-primary" role="alert">
-            <h4 class="text-primary text-center"> Zdravo,  <?php echo $ulogovaniKorisnik?> ! </h4>
-        </div>
-    </div>
-         
-
-
-
+<body   >
+    <br><br>
     <div class="container">
 
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewModal"   >Dodaj novi komad odece</button>
+  
+    <div class="alert alert alert-primary" role="alert">
+            <h4 class="text-primary text-center" > Zdravo, <strong><?php echo $ulogovaniKorisnik?></strong>  ! </h4>
+        </div>
+        </div>
+         
+    <br><br>
+
+
+    <div class="container" >
+      <br><br>
+          <div class="container">
+
+         
+                   
+                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addNewModal"   >Dodaj novi komad odece</button>  
+                  <div class="form-outline"    style="float:right">
+                    
+                        <input type="search" id="pretraga" class="form-control" onkeyup="pretragaPoImenu()"    placeholder="Search.." />
+                       
+                      </div>
+                      <button type="button" class="btn btn-primary" style="float:right">
+                        <i class="fas fa-search"></i>
+                      </button>
+                 
+          </div>
                 <br><br><br>
-            <table class="table">
+            <table class="table" id="tabelaOdeca">
                 <thead>
                     <tr>
                     <th scope="col">ID</th>
